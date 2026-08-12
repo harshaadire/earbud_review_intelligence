@@ -1,7 +1,7 @@
-requests
-beautifulsoup4
 pandas
 numpy
 matplotlib
 seaborn
 python-dotenv
+datasets<4.0
+wordcloud
