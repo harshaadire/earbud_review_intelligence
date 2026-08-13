@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api.dockerfile
+    ports:
+      - "8000:8000"
+    container_name: earbuds-api
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard.dockerfile
+    ports:
+      - "8501:8501"
+    container_name: earbuds-dashboard
+    depends_on:
+      - api
+    environment:
+      - API_URL= http://api:8000

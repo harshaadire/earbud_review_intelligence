@@ -4,8 +4,10 @@ import streamlit as st
 import requests
 import pandas as pd
 import plotly.express as px
+import os
 
-API_URL = "http://127.0.0.1:8000" #have to change after the deployment
+API_URL = os.environ.get("API_URL","http://127.0.0.1:8000") #have to change after the deployment
+#NOW it's overwritten by the docker compose
 
 st.set_page_config(page_title="Earbud Reviews Intelligence",layout="wide")
 
