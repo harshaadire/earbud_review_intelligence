@@ -12,3 +12,4 @@ torch
 transformers
 streamlit
 plotly
+torchvision
