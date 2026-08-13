@@ -5,3 +5,10 @@ seaborn
 python-dotenv
 datasets<4.0
 wordcloud
+fastapi
+uvicorn
+nltk
+torch
+transformers
+streamlit
+plotly
