@@ -6,7 +6,7 @@ import pandas as pd
 import plotly.express as px
 import os
 
-API_URL = os.environ.get("API_URL","http://127.0.0.1:8000") #have to change after the deployment
+API_URL = os.environ.get("API_URL", "http://127.0.0.1:8000") #have to change after the deployment
 #NOW it's overwritten by the docker compose
 
 st.set_page_config(page_title="Earbud Reviews Intelligence",layout="wide")
@@ -86,8 +86,8 @@ with tab2:
             color="negative_rate",
             color_continuous_scale="Reds",
             )
-            st.plotly_chart(fig, use_container_width=True)
-            st.dataframe(summary_df, use_container_width=True)
+            st.plotly_chart(fig, width="stretch")
+            st.dataframe(summary_df, width="stretch")
     except requests.exceptions.RequestException as e:
         st.error(f"could not reach API: {e}")
 
