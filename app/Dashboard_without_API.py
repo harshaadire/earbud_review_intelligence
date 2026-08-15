@@ -22,6 +22,7 @@ import os
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+import streamlit.components.v1 as components
 import torch
 from transformers import pipeline
 import nltk
@@ -84,22 +85,27 @@ def analyze_review(review_text: str, sentiment_pipeline) -> pd.DataFrame:
 
 st.set_page_config(page_title="Earbuds Review Intelligence", layout="wide")
 
+#Google Analytics
+GA_MEASUREMENT_ID = "G-35XTZFMB7C"
+components.html(
+    f"""
+    <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){{dataLayer.push(arguments);}}
+      gtag('js', new Date());
+      gtag('config', '{GA_MEASUREMENT_ID}');
+    </script>
+    """,
+    height=0,
+    width=0,
+)
+
 st.title("🎧 Earbuds Review Intelligence")
 st.markdown(
     "Aspect-based sentiment analysis on real wireless earbuds reviews — "
     "which product features drive negative feedback?"
 )
-st.markdown("""
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-35XTZFMB7C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-35XTZFMB7C');
-</script>
-""",unsafe_allow_html=True)
 
 sentiment_pipeline = load_model()
 
