@@ -85,22 +85,6 @@ def analyze_review(review_text: str, sentiment_pipeline) -> pd.DataFrame:
 
 st.set_page_config(page_title="Earbuds Review Intelligence", layout="wide")
 
-#Google Analytics
-GA_MEASUREMENT_ID = "G-35XTZFMB7C"
-components.html(
-    f"""
-    <script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){{dataLayer.push(arguments);}}
-      gtag('js', new Date());
-      gtag('config', '{GA_MEASUREMENT_ID}');
-    </script>
-    """,
-    height=0,
-    width=0,
-)
-
 st.title("🎧 Earbuds Review Intelligence")
 st.markdown(
     "Aspect-based sentiment analysis on real wireless earbuds reviews — "
