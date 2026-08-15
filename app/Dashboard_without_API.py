@@ -89,6 +89,17 @@ st.markdown(
     "Aspect-based sentiment analysis on real wireless earbuds reviews — "
     "which product features drive negative feedback?"
 )
+st.markdown("""
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-35XTZFMB7C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-35XTZFMB7C');
+</script>
+""",unsafe_allow_html=True)
 
 sentiment_pipeline = load_model()
 
